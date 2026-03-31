@@ -16,7 +16,7 @@ export default function Hero() {
 
           {/* Name */}
           <h1 className="text-4xl md:text-6xl font-bold">
-            Leno Micheal
+            Leno Micheal 
           </h1>
 
           {/* Typing Animation */}
