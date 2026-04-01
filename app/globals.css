@@ -123,3 +123,36 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* 1. Define the direction: Move from start to halfway point */
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* 2. Add the utility class to handle the hover-to-pause feature */
+.pause-hover {
+  display: flex; /* Ensures the container behaves as a flexbox */
+}
+
+.pause-hover:hover {
+  animation-play-state: paused !important;
+}
+
+/* 3. Optional: Ensure the container doesn't shrink icons */
+.whitespace-nowrap {
+  white-space: nowrap;
+}

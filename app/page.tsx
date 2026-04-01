@@ -1,9 +1,10 @@
 import { Button } from '@/components/ui/button'
-import Navbar from '@/components/layout/navbar'
-import Hero from '@/components/sections/hero'
+import Navbar from '@/components/layout/Navbar'
+import Hero from '@/components/sections/Hero'
 import React from 'react'
-import About from '@/components/sections/about'
-import Experience from '@/components/sections/experience'
+import About from '@/components/sections/About'
+import Experience from '@/components/sections/Experience'
+import TechStackMarquee from '@/components/sections/TechStackMarquee'
 
 const page = () => {
   return (
@@ -15,6 +16,7 @@ const page = () => {
     <Hero />
     <About/>
     <Experience/>
+    <TechStackMarquee />
    </>
   )
 }
