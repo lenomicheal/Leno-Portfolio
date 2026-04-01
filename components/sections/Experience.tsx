@@ -17,7 +17,7 @@ export default function Experience() {
         <div className="relative">
 
           {/* CENTER LINE */}
-          <div className="absolute left-1/2 top-0 h-full w-[2px] bg-orange-500 transform -translate-x-1/2"></div>
+          <div className="absolute left-1/2 top-0 h-full w-0.5 bg-orange-500 transform -translate-x-1/2"></div>
 
           <div className="space-y-16">
             {experiences.map((item, index) => (

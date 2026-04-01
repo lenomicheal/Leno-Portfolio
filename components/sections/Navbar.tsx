@@ -36,7 +36,7 @@ export default function Navbar() {
             <NavigationMenuItem>
               <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid gap-3 p-4 w-[250px]">
+                <ul className="grid gap-3 p-4 w-62.5">
                   
                   <li>
                     <NavigationMenuLink asChild>
