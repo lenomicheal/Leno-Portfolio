@@ -4,7 +4,7 @@ import TechStackMarquee from '@/components/sections/TechStackMarquee'
 import About from '@/components/sections/About'
 import Navbar from '@/components/layout/Navbar'
 import Hero from '@/components/sections/Hero'
-import Experience from '@/components/sections/experience'
+import Experience from '@/components/sections/Experience'
 
 const page = () => {
   return (
