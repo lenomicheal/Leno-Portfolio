@@ -1,9 +1,9 @@
 import { Button } from '@/components/ui/button'
 import React from 'react'
 import TechStackMarquee from '@/components/sections/TechStackMarquee'
-import About from '@/components/sections/about'
-import Navbar from '@/components/layout/navbar'
-import Hero from '@/components/sections/hero'
+import About from '@/components/sections/About'
+import Navbar from '@/components/layout/Navbar'
+import Hero from '@/components/sections/Hero'
 import Experience from '@/components/sections/experience'
 
 const page = () => {
