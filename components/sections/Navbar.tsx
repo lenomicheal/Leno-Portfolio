@@ -24,7 +24,6 @@ export default function Navbar() {
         {/* Navigation */}
         <NavigationMenu>
           <NavigationMenuList>
-
             {/* Home */}
             <NavigationMenuItem>
               <NavigationMenuLink asChild>

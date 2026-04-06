@@ -5,6 +5,7 @@ import About from '@/components/sections/About'
 import Navbar from '@/components/sections/Navbar'
 import Hero from '@/components/sections/Hero'
 import Experience from '@/components/sections/Experience'
+import Projects from '@/components/sections/Projects'
 
 const page = () => {
   return (
@@ -14,6 +15,7 @@ const page = () => {
     <About/>
     <Experience/>
     <TechStackMarquee />
+    <Projects />
    </>
   )
 }
