@@ -1,23 +1,22 @@
 "use client"
 
-import type { FormEvent } from "react"
 import { useState } from "react"
 
 export default function Contact() {
   const [loading, setLoading] = useState(false)
-  const [status, setStatus] = useState("")
+  const [status, setStatus] = useState<string | null>(null)
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setLoading(true)
-    setStatus("")
+    setStatus(null)
 
-    const form = e.currentTarget
+    const formData = new FormData(e.currentTarget)
 
     const data = {
-      name: form.name.value,
-      email: form.email.value,
-      message: form.message.value,
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
     }
 
     try {
@@ -28,15 +27,16 @@ export default function Contact() {
         },
         body: JSON.stringify(data),
       })
-      await res.json()
+
+      const result = await res.json()
 
       if (res.ok) {
         setStatus("✅ Message sent successfully!")
-        form.reset()
+        e.currentTarget.reset()
       } else {
-        setStatus("❌ Failed to send message")
+        setStatus(result.message || "❌ Failed to send message")
       }
-    } catch {
+    } catch (error) {
       setStatus("❌ Something went wrong")
     }
 
@@ -76,7 +76,9 @@ export default function Contact() {
           {loading ? "Sending..." : "Send Message"}
         </button>
 
-        {status && <p className="text-center">{status}</p>}
+        {status && (
+          <p className="text-center text-sm">{status}</p>
+        )}
       </form>
     </div>
   )
