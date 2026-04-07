@@ -38,7 +38,7 @@ export default function Hero() {
             Full Stack Developer crafting scalable web applications with a focus on simplicity,
             performance, and end-to-end solutions.{" "}
             <Link
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/lenomicheal/"
               target="_blank"
               className="underline hover:text-foreground"
             >
@@ -49,7 +49,7 @@ export default function Hero() {
           {/* Buttons */}
           <div className="flex gap-4">
             <Button asChild>
-              <a href="/resume.pdf" download>
+              <a href="/Leno Micheal Resume.pdf" download>
                 Download Resume
               </a>
             </Button>

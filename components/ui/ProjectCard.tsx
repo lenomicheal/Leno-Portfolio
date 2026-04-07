@@ -7,7 +7,6 @@ type Project = {
   title: string
   description: string
   techStack: string[]
-  tags: string[]
   liveUrl?: string
   githubUrl?: string
   stats?: string
@@ -18,7 +17,6 @@ export default function ProjectCard({
   title,
   description,
   techStack,
-  tags,
   liveUrl,
   githubUrl,
   stats,
@@ -42,10 +40,10 @@ export default function ProjectCard({
         
         {/* Tech Stack */}
         <div className="flex flex-wrap gap-2 pt-2">
-          {tags.map((tag, i) => (
-            <span
+          {techStack.map((tag, i) => (
+            <span 
               key={i}
-              className="text-xs px-3 py-1 rounded-md bg-gray-100 text-gray-700"
+              className="text-xs px-3 py-1 rounded-md bg-gray-700 text-white"
             >
               {tag}
             </span>

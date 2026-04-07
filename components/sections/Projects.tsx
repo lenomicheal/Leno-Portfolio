@@ -19,7 +19,7 @@ export default function Projects() {
       </h1>
 
       {/* Projects Grid */}
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {visibleProjects.map((project) => (
           <ProjectCard key={project.title} {...project} />
         ))}
