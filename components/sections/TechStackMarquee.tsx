@@ -49,9 +49,6 @@ export default function TechStack() {
       className="scroll-mt-24 overflow-hidden border-t border-gray-100 bg-[#FAFAFB] py-24"
     >
       <div className="max-w-4xl mx-auto text-center mb-20 px-6">
-        <h3 className="text-blue-600 font-bold tracking-[0.2em] text-xs uppercase mb-4">
-          Capabilities
-        </h3>
         <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
           Tech Skills
         </h2>

@@ -42,7 +42,7 @@ export default function Hero() {
               target="_blank"
               className="underline hover:text-foreground"
             >
-              Let's connect on LinkedIn
+              Let&apos;s connect on LinkedIn
             </Link>
           </p>
 
