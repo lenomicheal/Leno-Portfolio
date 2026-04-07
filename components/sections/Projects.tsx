@@ -12,7 +12,7 @@ export default function Projects() {
     : projectsData.slice(0, 3)
 
   return (
-    <section className="max-w-6xl mx-auto px-4 py-10">
+    <section id="projects" className="scroll-mt-24 max-w-6xl mx-auto px-4 py-10">
       
       <h1 className="text-3xl font-bold mb-8 text-center">
         My Projects

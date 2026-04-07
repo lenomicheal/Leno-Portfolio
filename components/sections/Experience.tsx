@@ -5,7 +5,7 @@ import TimelineItem from "@/components/ui/timeline-item"
 
 export default function Experience() {
   return (
-    <section className="py-20 bg-black text-white">
+    <section id="experience" className="scroll-mt-24 py-20 bg-black text-white">
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Heading */}

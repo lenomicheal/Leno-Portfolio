@@ -44,7 +44,10 @@ const tools: Skill[] = [
 
 export default function TechStack() {
   return (
-    <section className="bg-[#FAFAFB] py-24 overflow-hidden border-t border-gray-100">
+    <section
+      id="skills"
+      className="scroll-mt-24 overflow-hidden border-t border-gray-100 bg-[#FAFAFB] py-24"
+    >
       <div className="max-w-4xl mx-auto text-center mb-20 px-6">
         <h3 className="text-blue-600 font-bold tracking-[0.2em] text-xs uppercase mb-4">
           Capabilities

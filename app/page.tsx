@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button'
 import React from 'react'
 import TechStackMarquee from '@/components/sections/TechStackMarquee'
 import About from '@/components/sections/About'

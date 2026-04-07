@@ -17,7 +17,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
         
         {/* Logo */}
-        <Link href="/home" className="text-xl font-bold">
+        <Link href="#home" className="text-xl font-bold">
          <span>{"<Leno Micheal/>"}</span>
         </Link>
 
@@ -39,7 +39,7 @@ export default function Navbar() {
                   
                   <li>
                     <NavigationMenuLink asChild>
-                      <Link href="/projects">
+                      <Link href="#projects">
                         <div className="font-medium">Web Apps</div>
                         <p className="text-sm text-muted-foreground">
                           React & Next.js projects
@@ -66,21 +66,21 @@ export default function Navbar() {
             {/* About */}
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link href="about">About</Link>
+                <Link href="#about">About</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
 
             {/* Contact */}
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link href="/contact">Contact</Link>
+                <Link href="#contact">Contact</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
 
             {/* Resume */}
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link href="/resume" className="bg-black text-white">
+                <Link href="/Leno Micheal Resume.pdf" download className="bg-black text-white">
                   Resume
                 </Link>
               </NavigationMenuLink>

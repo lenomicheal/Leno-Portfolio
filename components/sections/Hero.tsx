@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center">
+    <section id="home" className="scroll-mt-24 min-h-screen flex items-center">
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 px-6">
 
         {/* left side*/}

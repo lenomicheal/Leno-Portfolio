@@ -5,7 +5,7 @@ import { GraduationCap, MapPin, Calendar } from "lucide-react"
 
 export default function About() {
   return (
-    <section className="relative py-20 bg-black text-white">
+    <section id="about" className="relative scroll-mt-24 py-20 bg-black text-white">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
         {/* LEFT SIDE */}
@@ -23,7 +23,7 @@ export default function About() {
 
           {/* Paragraphs */}
           <p className="text-gray-300 leading-relaxed">
-            Hi, I'm <span className="text-white font-semibold">Leno Micheal</span>, a Full Stack Developer
+            Hi, I&apos;m <span className="text-white font-semibold">Leno Micheal</span>, a Full Stack Developer
             with hands-on experience in building modern web applications using React.js and Next.js.
             I enjoy creating scalable and efficient systems with a strong focus on performance.
           </p>
