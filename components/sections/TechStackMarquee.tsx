@@ -1,5 +1,3 @@
-"use client"
-
 import React from "react"
 import { 
   FaJs, FaPython, FaReact, FaHtml5, FaCss3Alt, FaBootstrap, FaAws, FaGitAlt, FaGithub 

@@ -1,5 +1,3 @@
-"use client"
-
 import { experiences } from "@/data/experience"
 import TimelineItem from "@/components/ui/timeline-item"
 
