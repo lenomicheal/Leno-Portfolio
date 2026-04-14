@@ -1,5 +1,3 @@
-"use client"
-
 import React from "react"
 import { 
   FaJs, FaPython, FaReact, FaHtml5, FaCss3Alt, FaBootstrap, FaAws, FaGitAlt, FaGithub 
@@ -16,7 +14,7 @@ type Skill = {
 }
 
 const languages: Skill[] = [
-    { name: "Next.js", icon: <SiNextdotjs className="text-black" /> },
+    { name: "Next.js", icon: <SiNextdotjs className="text-[var(--text-primary)]" /> },
     { name: "React.js", icon: <FaReact color="#61DAFB" /> },
     { name: "JavaScript", icon: <FaJs color="#F7DF1E" /> },
     { name: "Python", icon: <FaPython color="#3776AB" /> },
@@ -29,16 +27,14 @@ const languages: Skill[] = [
 
 const tools: Skill[] = [
       { name: "Git", icon: <FaGitAlt color="#F05032" /> },
-  { name: "GitHub", icon: <FaGithub className="text-slate-800" /> },
+  { name: "GitHub", icon: <FaGithub className="text-[var(--text-primary)]" /> },
     { name: "Postman", icon: <SiPostman color="#FF6C37" /> },
-  { name: "Vercel", icon: <SiVercel className="text-black" /> },
+  { name: "Vercel", icon: <SiVercel className="text-[var(--text-primary)]" /> },
   { name: "Netlify", icon: <SiNetlify color="#00C7B7" /> },
   { name: "AWS Lambda", icon: <FaAws color="#FF9900" /> },
     { name: "AWS S3", icon: <FaAws color="#FF9900" /> },
     { name: "AWS EC2", icon: <FaAws color="#FF9900" /> },
   { name: "AWS DynamoDB", icon: <FaAws color="#FF9900" /> },
-//   { name: "Claude", icon: <SiAnthropic color="#D97757" /> },
-//   { name: "OpenAI", icon: <SiOpenai color="#412991" /> },
 ]
 
 
@@ -46,13 +42,19 @@ export default function TechStack() {
   return (
     <section
       id="skills"
-      className="scroll-mt-24 overflow-hidden border-t border-gray-100 bg-[#FAFAFB] py-24"
+      className="relative scroll-mt-24 overflow-hidden py-24 bg-[var(--bg-primary)]"
     >
+      {/* Subtle top divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent-primary)]/20 to-transparent" />
+
       <div className="max-w-4xl mx-auto text-center mb-20 px-6">
-        <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
+        <p className="text-sm font-semibold tracking-widest uppercase text-[var(--accent-primary)] font-mono mb-2">
+          Technologies I use
+        </p>
+        <h2 className="text-4xl md:text-5xl font-black gradient-text tracking-tight mb-6">
           Tech Skills
         </h2>
-        <p className="text-slate-600 max-w-2xl mx-auto">
+        <p className="text-[var(--text-muted)] max-w-2xl mx-auto">
           I specialize in building modern web applications with a focus on performance, scalability, and user experience.
         </p>
       </div>
@@ -64,4 +66,3 @@ export default function TechStack() {
     </section>
   )
 }
-

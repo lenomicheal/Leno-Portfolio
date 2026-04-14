@@ -6,8 +6,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -46,77 +46,156 @@
   --radius-4xl: calc(var(--radius) + 16px);
 }
 
+/* ========================================
+   LIGHT THEME (default)
+   ======================================== */
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Surfaces */
+  --background: #F8F8FC;
+  --foreground: #1A1A2E;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A2E;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A2E;
+
+  /* Brand */
+  --primary: #6366F1;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F0F0F8;
+  --secondary-foreground: #1A1A2E;
+
+  /* Utilities */
+  --muted: #F0F0F8;
+  --muted-foreground: #6B6B80;
+  --accent: #6366F1;
+  --accent-foreground: #FFFFFF;
+  --destructive: #F87171;
+
+  /* Borders & Inputs */
+  --border: #E2E2F0;
+  --input: #E2E2F0;
+  --ring: #6366F1;
+
+  /* Charts */
+  --chart-1: #6366F1;
+  --chart-2: #A78BFA;
+  --chart-3: #34D399;
+  --chart-4: #FBBF24;
+  --chart-5: #F87171;
+
+  /* Sidebar */
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1A1A2E;
+  --sidebar-primary: #6366F1;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F0F0F8;
+  --sidebar-accent-foreground: #1A1A2E;
+  --sidebar-border: #E2E2F0;
+  --sidebar-ring: #6366F1;
+
+  /* Portfolio-specific tokens */
+  --bg-primary: #F8F8FC;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F0F0F8;
+  --text-primary: #1A1A2E;
+  --text-secondary: #4A4A60;
+  --text-muted: #6B6B80;
+  --accent-primary: #6366F1;
+  --accent-hover: #818CF8;
+  --accent-glow: rgba(99, 102, 241, 0.15);
+  --accent-gradient-start: #6366F1;
+  --accent-gradient-end: #A78BFA;
+  --accent-surface: rgba(99, 102, 241, 0.06);
+  --success: #34D399;
+  --error: #F87171;
+  --tag-bg: rgba(99, 102, 241, 0.08);
+  --tag-text: #6366F1;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(99, 102, 241, 0.12);
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --nav-border: rgba(99, 102, 241, 0.1);
+  --card-shadow: 0 4px 24px -4px rgba(99, 102, 241, 0.08);
+  --card-hover-shadow: 0 20px 40px -12px rgba(99, 102, 241, 0.15);
+  --marquee-fade: #F8F8FC;
+  --marquee-card-bg: #FFFFFF;
+  --marquee-card-border: rgba(99, 102, 241, 0.1);
+  --marquee-card-text: #1A1A2E;
+}
+
+/* ========================================
+   DARK THEME
+   ======================================== */
+.dark {
+  --background: #0A0A0F;
+  --foreground: #F0F0F5;
+  --card: #111118;
+  --card-foreground: #F0F0F5;
+  --popover: #111118;
+  --popover-foreground: #F0F0F5;
+
+  --primary: #818CF8;
+  --primary-foreground: #0A0A0F;
+  --secondary: #1A1A24;
+  --secondary-foreground: #F0F0F5;
+
+  --muted: #1A1A24;
+  --muted-foreground: #6B6B80;
+  --accent: #818CF8;
+  --accent-foreground: #0A0A0F;
+  --destructive: #F87171;
+
+  --border: rgba(255, 255, 255, 0.07);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #6366F1;
+
+  --chart-1: #818CF8;
+  --chart-2: #A78BFA;
+  --chart-3: #34D399;
+  --chart-4: #FBBF24;
+  --chart-5: #F87171;
+
+  --sidebar: #111118;
+  --sidebar-foreground: #F0F0F5;
+  --sidebar-primary: #818CF8;
+  --sidebar-primary-foreground: #0A0A0F;
+  --sidebar-accent: #1A1A24;
+  --sidebar-accent-foreground: #F0F0F5;
+  --sidebar-border: rgba(255, 255, 255, 0.07);
+  --sidebar-ring: #6366F1;
+
+  /* Portfolio-specific tokens */
+  --bg-primary: #0A0A0F;
+  --bg-secondary: #111118;
+  --bg-tertiary: #1A1A24;
+  --text-primary: #F0F0F5;
+  --text-secondary: #A0A0B8;
+  --text-muted: #6B6B80;
+  --accent-primary: #6366F1;
+  --accent-hover: #818CF8;
+  --accent-glow: rgba(99, 102, 241, 0.2);
+  --accent-gradient-start: #6366F1;
+  --accent-gradient-end: #A78BFA;
+  --accent-surface: rgba(99, 102, 241, 0.1);
+  --success: #34D399;
+  --error: #F87171;
+  --tag-bg: rgba(99, 102, 241, 0.15);
+  --tag-text: #A78BFA;
+  --glass-bg: rgba(17, 17, 24, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.07);
+  --nav-bg: rgba(10, 10, 15, 0.8);
+  --nav-border: rgba(255, 255, 255, 0.08);
+  --card-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.3);
+  --card-hover-shadow: 0 20px 40px -12px rgba(99, 102, 241, 0.2);
+  --marquee-fade: #0A0A0F;
+  --marquee-card-bg: #111118;
+  --marquee-card-border: rgba(255, 255, 255, 0.07);
+  --marquee-card-text: #F0F0F5;
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
 }
 
 @layer base {
@@ -125,10 +204,102 @@ html {
   }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-/* 1. Define the direction: Move from start to halfway point */
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass surface */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Glow effect for cards */
+.glow-card {
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.glow-card:hover {
+  box-shadow: var(--card-hover-shadow);
+  transform: translateY(-2px);
+}
+
+/* Accent left border for cards */
+.accent-border-left {
+  border-left: 3px solid var(--accent-primary);
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+
+/* ========================================
+   MARQUEE ANIMATIONS
+   ======================================== */
+
 @keyframes marquee-left {
   from {
     transform: translateX(0);
@@ -147,16 +318,44 @@ html {
   }
 }
 
-/* 2. Add the utility class to handle the hover-to-pause feature */
 .pause-hover {
-  display: flex; /* Ensures the container behaves as a flexbox */
+  display: flex;
 }
 
 .pause-hover:hover {
   animation-play-state: paused !important;
 }
 
-/* 3. Optional: Ensure the container doesn't shrink icons */
 .whitespace-nowrap {
   white-space: nowrap;
+}
+
+/* ========================================
+   SCROLLBAR STYLING
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover);
+}
+
+/* ========================================
+   SELECTION STYLING
+   ======================================== */
+
+::selection {
+  background: var(--accent-primary);
+  color: white;
 }
