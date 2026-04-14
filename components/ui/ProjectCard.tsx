@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react"
+import Image from "next/image"
 import { ExternalLink, Github } from "lucide-react"
 
 type Project = {
@@ -23,27 +24,29 @@ export default function ProjectCard({
   image,
 }: Project) {
   return (
-    <div className="rounded-2xl border bg-white shadow-sm overflow-hidden hover:shadow-md transition-all duration-300">
+    <div className="group rounded-2xl border border-[var(--glass-border)] bg-[var(--bg-secondary)] overflow-hidden glow-card transition-all duration-300">
       
       {/* Image */}
       {image && (
-        <div className="h-48 w-full overflow-hidden">
+        <div className="relative h-48 w-full overflow-hidden">
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-secondary)] via-transparent to-transparent opacity-60" />
         </div>
       )}
 
       <div className="p-5 space-y-4">
         
         {/* Tech Stack */}
-        <div className="flex flex-wrap gap-2 pt-2">
+        <div className="flex flex-wrap gap-2">
           {techStack.map((tag, i) => (
             <span 
               key={i}
-              className="text-xs px-3 py-1 rounded-md bg-gray-700 text-white"
+              className="text-xs font-medium px-3 py-1 rounded-full bg-[var(--tag-bg)] text-[var(--tag-text)]"
             >
               {tag}
             </span>
@@ -51,33 +54,31 @@ export default function ProjectCard({
         </div>
 
         {/* Title */}
-        <h2 className="text-xl font-semibold text-gray-800">
+        <h2 className="text-xl font-semibold text-[var(--text-primary)] group-hover:gradient-text transition-colors duration-300">
           {title}
         </h2>
 
         {/* Description */}
-        <p className="text-sm text-gray-600 leading-relaxed">
+        <p className="text-sm text-[var(--text-muted)] leading-relaxed">
           {description}
         </p>
 
         {/* Stats */}
         {stats && (
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-teal-50 text-teal-600 text-sm">
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--accent-surface)] text-[var(--accent-primary)] text-sm font-medium">
             {stats}
           </div>
         )}
 
-        
-
         {/* Buttons */}
-        <div className="flex gap-3 pt-3">
+        <div className="flex gap-3 pt-2">
           {liveUrl && (
             <a
               href={liveUrl}
               target="_blank"
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-sm font-medium hover:opacity-90"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[var(--accent-gradient-start)] to-[var(--accent-gradient-end)] text-white text-sm font-semibold hover:shadow-[0_4px_16px_var(--accent-glow)] hover:scale-[1.02] transition-all duration-300"
             >
-              <ExternalLink size={16} />
+              <ExternalLink size={15} />
               Live Demo
             </a>
           )}
@@ -86,9 +87,9 @@ export default function ProjectCard({
             <a
               href={githubUrl}
               target="_blank"
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gray-900 text-white text-sm font-medium hover:bg-gray-800"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-[var(--glass-border)] bg-[var(--bg-tertiary)] text-[var(--text-secondary)] text-sm font-semibold hover:bg-[var(--accent-surface)] hover:text-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-all duration-300"
             >
-              <Github size={16} />
+              <Github size={15} />
               Source Code
             </a>
           )}
