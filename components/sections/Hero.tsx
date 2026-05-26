@@ -5,8 +5,11 @@ import Link from "next/link"
 import { TypeAnimation } from "react-type-animation"
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Download } from "lucide-react"
+import { useState } from "react"
 
 export default function Hero() {
+  // change to add available to work
+  const [availableForHire, setAvailableForHire] = useState(false)
   return (
     <section
       id="home"
@@ -32,13 +35,16 @@ export default function Hero() {
         <div className="flex flex-col items-center md:items-start justify-center space-y-6 animate-fade-in-up">
 
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--glass-border)] bg-[var(--accent-surface)] text-xs font-medium text-[var(--accent-primary)]">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent-primary)] opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--accent-primary)]" />
-            </span>
-            Available for hire
-          </div>
+          {availableForHire && (
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--glass-border)] bg-[var(--accent-surface)] text-xs font-medium text-[var(--accent-primary)]">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent-primary)] opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--accent-primary)]" />
+              </span>
+              Available for hire
+            </div>
+          )
+          }
 
           {/* Name */}
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">

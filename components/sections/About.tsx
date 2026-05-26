@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { GraduationCap, MapPin, Calendar } from "lucide-react"
+import { MotionContainer, MotionItem } from "@/components/ui/scroll-motion"
 
 export default function About() {
   return (
@@ -7,10 +8,10 @@ export default function About() {
       {/* Subtle top divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent-primary)]/20 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      <MotionContainer className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
         {/* LEFT SIDE */}
-        <div className="space-y-6">
+        <MotionItem  className="space-y-6">
 
           {/* Heading */}
           <div className="space-y-2">
@@ -45,10 +46,10 @@ export default function About() {
             better and more efficient applications.
           </p>
 
-        </div>
+        </MotionItem >
 
         {/* RIGHT SIDE (CARDS) */}
-        <div className="space-y-6">
+        <MotionItem  className="space-y-6">
 
           {/* Education Card 1 */}
           <Card className="glow-card accent-border-left bg-[var(--bg-secondary)] border border-[var(--glass-border)] backdrop-blur-lg rounded-2xl overflow-hidden">
@@ -101,8 +102,8 @@ export default function About() {
             </CardContent>
           </Card>
 
-        </div>
-      </div>
+        </MotionItem>
+    </MotionContainer>
     </section>
   )
 }
