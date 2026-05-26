@@ -4,6 +4,13 @@ import { useState } from "react"
 import { projectsData } from "@/data/projectsData"
 import ProjectCard from "../ui/ProjectCard"
 import { ChevronDown, ChevronUp } from "lucide-react"
+import { MotionContainer, MotionItem } from "@/components/ui/scroll-motion"
+
+const getProjectSlug = (title: string) =>
+  title
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "")
 
 export default function Projects() {
   const [showAll, setShowAll] = useState(false)
@@ -25,11 +32,13 @@ export default function Projects() {
       </div>
 
       {/* Projects Grid */}
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <MotionContainer className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {visibleProjects.map((project) => (
-          <ProjectCard key={project.title} {...project} />
-        ))}
-      </div>
+  <MotionItem key={project.title}>
+    <ProjectCard id={getProjectSlug(project.title)} {...project} />
+  </MotionItem>
+))}
+      </MotionContainer>
 
       {/* View More Button (ONLY if > 3 projects) */}
       {projectsData.length > 3 && (

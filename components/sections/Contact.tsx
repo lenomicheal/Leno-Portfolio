@@ -10,6 +10,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    const form = e.currentTarget
     setLoading(true)
     setStatus(null)
 
@@ -31,17 +32,19 @@ export default function Contact() {
       })
 
       const result = await res.json()
+      console.log(result.success)
 
-      if (res.ok) {
+      if (result.success) {
         setStatus("success")
-        e.currentTarget.reset()
+        form.reset()
       } else {
         setStatus("error")
       }
     } catch (error) {
       setStatus("error")
     }
-
+    
+    console.log(status)
     setLoading(false)
     setTimeout(() => setStatus(null), 5000)
   }
@@ -136,6 +139,38 @@ export default function Contact() {
               className="space-y-5 p-6 md:p-8 rounded-2xl border border-[var(--glass-border)] bg-[var(--bg-secondary)] backdrop-blur-lg"
             >
 
+             <legend className="text-sm font-semibold tracking-widest uppercase text-[var(--accent-primary)] font-mono">
+                Connect with me
+              </legend>
+             {/* Status Messages */}
+              {status === "success" && (
+                <div
+                  className="flex items-center gap-2 p-3 rounded-xl text-sm font-medium animate-fade-in-up"
+                  style={{
+                    backgroundColor: "rgba(52, 211, 153, 0.1)",
+                    border: "1px solid rgba(52, 211, 153, 0.25)",
+                    color: "#34D399",
+                  }}
+                >
+                  <CheckCircle2 className="w-4 h-4 shrink-0" />
+                  Message sent successfully! I&apos;ll get back to you soon.
+                </div>
+              )}
+
+              {status === "error" && (
+                <div
+                  className="flex items-center gap-2 p-3 rounded-xl text-sm font-medium animate-fade-in-up"
+                  style={{
+                    backgroundColor: "rgba(248, 113, 113, 0.1)",
+                    border: "1px solid rgba(248, 113, 113, 0.25)",
+                    color: "#F87171",
+                  }}
+                >
+                  <XCircle className="w-4 h-4 shrink-0" />
+                  Something went wrong. Please try again or email me directly.
+                </div>
+              )}
+
               {/* Name */}
               <div className="space-y-2">
                 <label htmlFor="contact-name" className="text-sm font-medium text-[var(--text-secondary)]">
@@ -144,7 +179,7 @@ export default function Contact() {
                 <input
                   id="contact-name"
                   name="name"
-                  placeholder="John Doe"
+                  placeholder="Luffy D. Monkey"
                   required
                   className="w-full px-4 py-3 rounded-xl border border-[var(--glass-border)] bg-[var(--bg-tertiary)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] focus:border-transparent transition-all duration-200 text-sm"
                 />
@@ -159,7 +194,7 @@ export default function Contact() {
                   id="contact-email"
                   name="email"
                   type="email"
-                  placeholder="john@example.com"
+                  placeholder="luffy@example.com"
                   required
                   className="w-full px-4 py-3 rounded-xl border border-[var(--glass-border)] bg-[var(--bg-tertiary)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] focus:border-transparent transition-all duration-200 text-sm"
                 />
@@ -199,21 +234,6 @@ export default function Contact() {
                 )}
               </button>
 
-              {/* Status Messages */}
-              {status === "success" && (
-                <div className="flex items-center gap-2 p-3 rounded-xl bg-[var(--success)]/10 border border-[var(--success)]/20 text-[var(--success)] text-sm font-medium animate-fade-in-up">
-                  <CheckCircle2 className="w-4 h-4 shrink-0" />
-                  Message sent successfully! I&apos;ll get back to you soon.
-                </div>
-              )}
-
-              {status === "error" && (
-                <div className="flex items-center gap-2 p-3 rounded-xl bg-[var(--error)]/10 border border-[var(--error)]/20 text-[var(--error)] text-sm font-medium animate-fade-in-up">
-                  <XCircle className="w-4 h-4 shrink-0" />
-                  Something went wrong. Please try again or email me directly.
-                </div>
-              )}
-
             </form>
           </div>
 
@@ -222,10 +242,11 @@ export default function Contact() {
         {/* Footer */}
         <div className="mt-20 pt-8 border-t border-[var(--glass-border)] text-center">
           <p className="text-sm text-[var(--text-muted)]">
-            © {new Date().getFullYear()} Leno Micheal. Built with{" "}
-            <span className="font-mono text-[var(--accent-primary)]">Next.js</span>{" "}
-            &{" "}
-            <span className="font-mono text-[var(--accent-primary)]">Tailwind CSS</span>
+            © {new Date().getFullYear()} Leno Micheal.{" "}
+            <span className="font-mono text-[var(--accent-primary)]">
+              "I have infinite chances, as long as I am alive."
+            </span>{" "}
+            - Monkey D. Luffy
           </p>
         </div>
 

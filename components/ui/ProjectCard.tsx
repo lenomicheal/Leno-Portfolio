@@ -5,6 +5,7 @@ import Image from "next/image"
 import { ExternalLink, Github } from "lucide-react"
 
 type Project = {
+  id?: string
   title: string
   description: string
   techStack: string[]
@@ -15,6 +16,7 @@ type Project = {
 }
 
 export default function ProjectCard({
+  id,
   title,
   description,
   techStack,
@@ -24,7 +26,7 @@ export default function ProjectCard({
   image,
 }: Project) {
   return (
-    <div className="group rounded-2xl border border-[var(--glass-border)] bg-[var(--bg-secondary)] overflow-hidden glow-card transition-all duration-300">
+    <div id={id} className="group rounded-2xl border border-[var(--glass-border)] bg-[var(--bg-secondary)] overflow-hidden glow-card transition-all duration-300">
       
       {/* Image */}
       {image && (

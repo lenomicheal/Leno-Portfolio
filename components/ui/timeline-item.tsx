@@ -1,6 +1,10 @@
+"use client"
+
+import { useState } from "react"
 import Image from "next/image"
-import { ChevronUp } from "lucide-react"
+import { ChevronDown, ChevronUp } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { motion } from "framer-motion"
 
 type Props = {
   role: string
@@ -25,6 +29,8 @@ export default function TimelineItemZigzag({
   tech,
   isLeft,
 }: Props) {
+  const [isOpen, setIsOpen] = useState(true)
+
   const contentBlock = (
     <div className="space-y-4 rounded-2xl border border-[var(--glass-border)] bg-[var(--bg-secondary)] p-5 glow-card">
       <div className="flex items-start justify-between gap-4">
@@ -34,25 +40,37 @@ export default function TimelineItemZigzag({
             {company} — {location}
           </p>
         </div>
-        <ChevronUp size={16} className="mt-1 shrink-0 text-[var(--text-muted)]" />
+        <button
+          type="button"
+          onClick={() => setIsOpen((current) => !current)}
+          aria-label={isOpen ? "Close experience details" : "Open experience details"}
+          aria-expanded={isOpen}
+          className="mt-1 flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-lg text-[var(--text-muted)] transition-colors hover:bg-[var(--bg-tertiary)] hover:text-[var(--accent-primary)]"
+        >
+          {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+        </button>
       </div>
 
-      <ul className="list-disc space-y-2 pl-5 text-sm text-[var(--text-secondary)]">
-        {points.map((point, index) => (
-          <li key={index}>{point}</li>
-        ))}
-      </ul>
+      {isOpen && (
+        <>
+          <ul className="list-disc space-y-2 pl-5 text-sm text-[var(--text-secondary)]">
+            {points.map((point, index) => (
+              <li key={index}>{point}</li>
+            ))}
+          </ul>
 
-      <div className="flex flex-wrap gap-2">
-        {tech.map((item, index) => (
-          <span
-            key={index}
-            className="rounded-full bg-[var(--tag-bg)] px-3 py-1 text-xs font-medium text-[var(--tag-text)]"
-          >
-            {item}
-          </span>
-        ))}
-      </div>
+          <div className="flex flex-wrap gap-2">
+            {tech.map((item, index) => (
+              <span
+                key={index}
+                className="rounded-full bg-[var(--tag-bg)] px-3 py-1 text-xs font-medium text-[var(--tag-text)]"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   )
 
@@ -64,9 +82,15 @@ export default function TimelineItemZigzag({
   )
 
   return (
-    <div className="grid grid-cols-[40px_minmax(0,1fr)] gap-x-6 gap-y-4 md:grid-cols-[minmax(0,1fr)_72px_minmax(0,1fr)] md:gap-x-10">
+    <motion.div
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.25 }}
+  transition={{ duration: 0.5, ease: "easeOut" }}
+      className="grid grid-cols-[40px_minmax(0,1fr)] gap-x-6 gap-y-4 md:grid-cols-[minmax(0,1fr)_72px_minmax(0,1fr)] md:gap-x-10"
+>
       <div className="relative row-span-2 flex h-10 w-10 items-start justify-center md:col-start-2 md:row-span-1 md:mx-auto">
-        <div className="relative z-10 flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border-2 border-[var(--accent-primary)] bg-[var(--bg-secondary)] shadow-[0_0_14px_var(--accent-glow)]">
+        <div className="relative z-10 flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border-2 border-[var(--accent-primary)] bg-[var(--bg-secondary)] shadow-[0_0_14px_var(--accent-glow)] bg-white">
           <Image
             src={logo}
             alt={`${company} logo`}
@@ -95,6 +119,6 @@ export default function TimelineItemZigzag({
       >
         {durationBlock}
       </div>
-    </div>
+   </motion.div>
   )
 }

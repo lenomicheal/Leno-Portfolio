@@ -14,6 +14,12 @@ const navItems = [
   { label: "Skills", href: "#skills" },
 ]
 
+const getProjectSlug = (title: string) =>
+  title
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "")
+
 export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -22,7 +28,36 @@ export default function Navbar() {
     event.preventDefault()
     const target = document.querySelector(href)
     if (target instanceof HTMLElement) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" })
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      const targetTop = target.getBoundingClientRect().top + window.scrollY - 96
+
+      if (prefersReducedMotion) {
+        window.scrollTo({ top: targetTop })
+      } else {
+        const startTop = window.scrollY
+        const distance = targetTop - startTop
+        const duration = 750
+        const startTime = performance.now()
+
+        const easeInOutCubic = (progress: number) =>
+          progress < 0.5
+            ? 4 * progress * progress * progress
+            : 1 - Math.pow(-2 * progress + 2, 3) / 2
+
+        const scrollStep = (currentTime: number) => {
+          const elapsed = currentTime - startTime
+          const progress = Math.min(elapsed / duration, 1)
+
+          window.scrollTo(0, startTop + distance * easeInOutCubic(progress))
+
+          if (progress < 1) {
+            window.requestAnimationFrame(scrollStep)
+          }
+        }
+
+        window.requestAnimationFrame(scrollStep)
+      }
+
       window.history.replaceState(null, "", href)
     }
     setIsMobileMenuOpen(false)
@@ -60,10 +95,14 @@ export default function Navbar() {
             onMouseEnter={() => setIsDropdownOpen(true)}
             onMouseLeave={() => setIsDropdownOpen(false)}
           >
-            <button className="flex items-center gap-1 text-sm font-medium text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors duration-200 cursor-pointer">
+            <a
+              href="#projects"
+              onClick={(e) => handleSmoothScroll(e, "#projects")}
+              className="flex items-center gap-1 text-sm font-medium text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors duration-200 cursor-pointer"
+            >
               Projects
               <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", isDropdownOpen && "rotate-180")} />
-            </button>
+            </a>
 
             {/* Dropdown Menu */}
             <div className={cn(
@@ -74,19 +113,28 @@ export default function Navbar() {
                 <div className="grid gap-1">
                   {projectsData.map((project) => (
                     <div key={project.title} className="group/item flex flex-col rounded-lg p-2.5 hover:bg-[var(--accent-surface)] transition-colors duration-200">
-                      <span className="text-xs font-semibold text-[var(--text-primary)] mb-1">{project.title}</span>
+                      <a
+                        href={`#${getProjectSlug(project.title)}`}
+                        onClick={(e) => {
+                          handleSmoothScroll(e, `#${getProjectSlug(project.title)}`)
+                          setIsDropdownOpen(false)
+                        }}
+                        className="text-xs font-semibold text-[var(--text-primary)] mb-1 hover:text-[var(--accent-primary)] transition-colors"
+                      >
+                        {project.title}
+                      </a>
                       <div className="flex gap-3">
                         <a
                           href={project.liveUrl}
                           target="_blank"
-                          className="flex items-center gap-1 text-[10px] text-[var(--text-muted)] hover:text-[var(--accent-primary)] transition-colors"
+                          className="flex items-center gap-1 text-sm text-[var(--text-muted)] hover:text-[var(--accent-primary)] transition-colors"
                         >
                           <ExternalLink className="w-3 h-3" /> Live
                         </a>
                         <a
                           href={project.githubUrl}
                           target="_blank"
-                          className="flex items-center gap-1 text-[10px] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
+                          className="flex items-center gap-1 text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
                         >
                           <Github className="w-3 h-3" /> Code
                         </a>
@@ -114,8 +162,8 @@ export default function Navbar() {
 
           {/* Resume Button - Desktop */}
           <Link
-            href="/Leno Micheal Resume.pdf"
-            download
+            href="https://drive.google.com/file/d/1auFC-5fqXNfOKUc1Ul27KR_Rz4fc4Dyd/view?usp=sharing"
+            target="_blank"
             className="hidden md:inline-flex rounded-full bg-gradient-to-r from-[var(--accent-gradient-start)] to-[var(--accent-gradient-end)] px-5 py-1.5 text-xs font-bold text-white shadow-[0_4px_16px_var(--accent-glow)] hover:shadow-[0_6px_24px_var(--accent-glow)] hover:scale-105 transition-all duration-300 active:scale-95"
           >
             Resume

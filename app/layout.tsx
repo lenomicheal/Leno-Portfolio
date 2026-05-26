@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import FirstVisitLoader from "@/components/ui/first-visit-loader";
 import "./globals.css";
 
 const inter = Inter({
@@ -38,7 +39,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange={false}
         >
-          {children}
+          <FirstVisitLoader>{children}</FirstVisitLoader>
         </ThemeProvider>
       </body>
     </html>
