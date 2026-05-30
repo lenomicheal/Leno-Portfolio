@@ -243,8 +243,11 @@ export default function Contact() {
         <div className="mt-20 pt-8 border-t border-[var(--glass-border)] text-center">
           <p className="text-sm text-[var(--text-muted)]">
             © {new Date().getFullYear()} Leno Micheal.{" "}
-            <span className="font-mono text-[var(--accent-primary)]">
-              "I have infinite chances, as long as I am alive."
+            <br/>
+            Built with structured design and practical approach.
+            <br/>
+            <span className="font-mono text-[var(--accent-primary)]  mt-3">
+              "As long as i'm alive there are infinite chances"
             </span>{" "}
             - Monkey D. Luffy
           </p>
