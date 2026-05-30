@@ -30,13 +30,13 @@ export default function About() {
 
           {/* Paragraphs */}
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            Hi, I&apos;m <span className="text-[var(--text-primary)] font-semibold">Leno Micheal</span>, a Full Stack Developer
+            Hi, I&apos;m <span className="text-[var(--text-primary)] font-semibold">Leno Micheal</span>, a Junior Web Developer
             with hands-on experience in building modern web applications using React.js and Next.js.
             I enjoy creating scalable and efficient systems with a strong focus on performance.
           </p>
 
           <p className="text-[var(--text-secondary)] leading-relaxed">
-            During my internship, I worked on real-world projects like admin dashboards,
+            I worked on real-world projects like admin dashboards,
             payment validation systems, and cloud-based lab platforms using AWS services.
             I love solving complex problems and building impactful solutions.
           </p>

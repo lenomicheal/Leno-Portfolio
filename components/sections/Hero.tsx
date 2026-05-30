@@ -57,7 +57,9 @@ export default function Hero() {
           <div className="text-xl md:text-3xl font-semibold text-[var(--text-secondary)]">
             <TypeAnimation
               sequence={[
-                "Full Stack Developer",
+                "Junior Web Developer",
+                2000,
+                "Associate Software Engineer",
                 2000,
                 "Building Scalable Apps",
                 2000,
@@ -118,6 +120,7 @@ export default function Hero() {
               src="/images/leno-micheal.jpeg"
               alt="Leno Micheal"
               fill
+              sizes="(max-width: 768px) 15rem, 25rem"
               priority
               className="object-cover rounded-2xl shadow-2xl border border-[var(--glass-border)]"
             />

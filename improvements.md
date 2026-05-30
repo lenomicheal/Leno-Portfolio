@@ -1,0 +1,12 @@
+- make it responsive for mobile and tablet
+- form css(cross scripting) and looks for any security threats
+- i wanna have github,linkedin and email option at right for all pages,it needs to be fixed
+- Change profile pic 
+- Reduce Tech skils reduce no of skills,it kind of too muuch
+- It easily seems ai generated, i wanna improve UI
+- Make a cursor that moves like a pointer and want some background video like graphics
+- Make dark theme bg gradient to black and green
+- update experence desc diff for intern and fulltimme
+- when i click project in dropdown it won't scroll
+- try make structure clean and clear
+- scroll is little slow
